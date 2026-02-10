@@ -1,39 +1,52 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-@charset "utf-8";
+/* --- MODERN TECH THEME OVERRIDE --- */
 
-/* Built-in Sass modules you’ll likely use across partials */
-@use "sass:math";
-@use "sass:string";
+/* 1. Background & Fonts */
+body {
+    background-color: #0a192f !important; /* Deep Navy Blue (Like VS Code) */
+    color: #8892b0 !important; /* Soft Slate text */
+    font-family: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif !important;
+}
 
-/* Configure your design tokens BEFORE loading any of your partials.
-   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
-@use "variables" with (
-  $max-content-width: {{ site.max_width | default:  "930px" }}
-);
+/* 2. Headlines shine */
+h1, h2, h3, h4, h5, h6 {
+    color: #ccd6f6 !important; /* Bright White/Grey */
+    font-weight: 700;
+}
 
-/* Your project partials — convert these files to `@use "variables";`
-   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
-@use "themes";
-@use "layout";
+/* 3. The "Accent" Color (Cyan/Teal) */
+a {
+    color: #64ffda !important; /* Neon Teal */
+    text-decoration: none;
+    transition: 0.3s;
+}
+a:hover {
+    color: #64ffda;
+    text-decoration: underline;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
 
-// Core styles organized by usage
-@use "typography";
-@use "navbar";
-@use "footer";
-@use "blog";
-@use "publications";
-@use "components";
-@use "utilities";
+/* 4. Professional Navigation Bar */
+.navbar {
+    background-color: rgba(10, 25, 47, 0.95) !important;
+    backdrop-filter: blur(10px); /* Frosted Glass Effect */
+    border-bottom: 1px solid #233554;
+}
 
-// Other specialized styles
-@use "distill";
-@use "cv";
-@use "tabs";
-@use "teachings";
-@use "typograms";
-@use "font-awesome/fontawesome";
-@use "font-awesome/brands";
-@use "font-awesome/solid";
-@use "font-awesome/regular";
+/* 5. Project Cards - The "Hover Lift" */
+.card {
+    background-color: #112240 !important; /* Lighter Navy */
+    border: none !important;
+    border-radius: 10px !important;
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-7px); /* Moves up when hovered */
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* 6. The "Profile Picture" styling */
+.profile img {
+    border: 2px solid #64ffda; /* Teal Border */
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+    border-radius: 15px !important; /* Rounded square is more modern than circle */
+}
